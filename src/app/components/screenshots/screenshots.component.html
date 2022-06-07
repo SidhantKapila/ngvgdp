@@ -1,1 +1,11 @@
-<p>screenshots works!</p>
+<div class="screenshotsDiv mx-1" style="margin: -10%;" >
+    <img
+      class="game-screenshot"
+      *ngFor="let screenshot of ssResp.screenshots"
+      src="{{ screenshot.image }}"
+      alt="screenshot"
+    />
+    <h1>SS TEST</h1>
+</div>
+
+

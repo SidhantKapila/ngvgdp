@@ -1,4 +1,4 @@
-<div class="details">
+<div class="details" *ngIf="!isLoading">
   <div class="game-banner">
     <img
         *ngIf="game?.background_image"
@@ -23,4 +23,8 @@
     <app-game-tabs [gameTabs]="gameTabs"></app-game-tabs>
   </div>
 
+</div>
+
+<div *ngIf="isLoading">
+  //Loader here
 </div>

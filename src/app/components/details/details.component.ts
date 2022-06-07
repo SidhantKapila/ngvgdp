@@ -15,6 +15,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   game!: Game;
   routeSub: Subscription = new Subscription;
   gameSub: Subscription = new Subscription;
+  isLoading = false;
 
   gameTabs=[
     {
@@ -26,8 +27,8 @@ export class DetailsComponent implements OnInit, OnDestroy {
       route: "screenshots"
     },
     {
-      name : "Trailer",
-      route: "trailer"
+      name : "Trailers",
+      route: "trailers"
     },
   ]
   constructor(
@@ -52,11 +53,19 @@ export class DetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-
   getGameDetails(id: string){
+    this.isLoading = true;
     this.gameSub = this.httpService.getGameDetails(id).subscribe((gameResp : Game) => {
       this.game = gameResp;
-      setTimeout(()=>{this.gameRating = this.game.metacritic;}, 1000)
+      setTimeout(()=>{this.gameRating = this.game.metacritic; this.isLoading = false}, 1000)
+    });
+  }
+
+  getGameDetails2(id: string, request: string){
+    this.isLoading = true;
+    this.gameSub = this.httpService.getGameDetails2(id, request).subscribe((gameResp : Game) => {
+      this.game = gameResp;
+      setTimeout(()=>{this.gameRating = this.game.metacritic; this.isLoading = false}, 1000)
     });
   }
 

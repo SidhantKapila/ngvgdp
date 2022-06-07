@@ -1,3 +1,11 @@
-<h1 class="text-black">about works!</h1>
-<div>
+<div class="about-description text-left bg-info bg-gradient mx-1" style="margin: -15%;" >
+  <p *ngIf="aboutResp.website" class="aboutResp-tabs-par">
+    Website:
+    <a class="aboutResp-tabs-link" href="{{ aboutResp.website }}" target="_blank">{{
+      aboutResp.website
+    }}</a>
+  </p>
+  <div class="aboutResp-description oveflow-auto m-1" [innerHTML]="aboutResp.description"></div>
+  <p class="aboutResp-tabs-votes">
+  </p>
 </div>

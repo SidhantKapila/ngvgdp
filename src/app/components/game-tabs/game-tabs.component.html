@@ -12,9 +12,9 @@
   </div>
   <div class="chosen-game-tab">
 
-    <app-about></app-about>
-    <app-screenshots></app-screenshots>
-    <app-trailers></app-trailers>
+    <app-about *ngIf="currentTab == 'about'"></app-about>
+    <app-screenshots *ngIf="currentTab == 'screenshots'"></app-screenshots>
+    <app-trailers *ngIf="currentTab == 'trailers'"></app-trailers>
   </div>
 </div>
 

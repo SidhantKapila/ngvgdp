@@ -17,7 +17,7 @@ import { HttpHeadersInterceptor } from './interceptors/http-headers.interceptor'
 import { DetailsComponent } from './components/details/details.component';
 import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 import { TabComponent } from './components/tab/tab.component';
-import { AboutComponent } from './components/about/about.component';
+import AboutComponent from './components/about/about.component';
 import { ScreenshotsComponent } from './components/screenshots/screenshots.component';
 import { TrailersComponent } from './components/trailers/trailers.component';
 

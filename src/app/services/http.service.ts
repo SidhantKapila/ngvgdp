@@ -47,5 +47,16 @@ export class HttpService {
     );
   }
 
+  getGameDetails2(id: string, request: string): any{
+
+
+    if (request == "about"){
+      return this.http.get(`${env.BASE_URL}/games/${id}`);
+    } else if (request == "trailers"){
+      return this.http.get(`${env.BASE_URL}/games/${id}/movies`);
+    } else if (request == "screenshots"){
+      return this.http.get(`${env.BASE_URL}/games/${id}/screenshots`);
+    }
+  }
 
 }

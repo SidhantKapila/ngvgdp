@@ -1,1 +1,11 @@
-<p>trailers works!</p>
+<h1>trailers works!</h1>
+<div>
+  <video
+        class="game-trailer"
+        controls
+        *ngFor="let trailer of ttResp.trailers"
+      >
+        <source src="{{ trailer.data?.max }}" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+</div>
