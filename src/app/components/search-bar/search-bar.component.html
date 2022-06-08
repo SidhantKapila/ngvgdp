@@ -1,0 +1,21 @@
+<div class="container-fluid main-header bg-gradient" >
+  <div class="search-bar-div">
+    <form class="search-form" #form='ngForm' (ngSubmit)="onSubmit(form)" >
+      <span class="logo col fw-bold px-1 fs-1 " routerLink="/">NgVGBD</span>
+      <div class=" align-middle col d-flex  ">
+        <input
+          type="text"
+          class="form-control-lg col-8"
+          name="search"
+          ngModel
+          placeholder="Search 500,000+ games"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+        <button type="button" class="search-bar-button btn col-2 btn-lg btn-primary btn-hover m-1" >Search</button>
+      </div>
+
+    </form>
+  </div>
+
+</div>

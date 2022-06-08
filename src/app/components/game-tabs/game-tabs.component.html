@@ -1,0 +1,20 @@
+
+<div>
+  <div class="game-tabs position-relative align-middle col-7 d-flex" >
+    <ul *ngFor="let tab of gameTabs"
+        class="nav nav-tabs mx-auto">
+      <li class="nav-item">
+        <a class="nav-link active btn-hover" (click)="openComponent(tab.route)">
+          {{tab.name}}
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="chosen-game-tab">
+
+    <app-about *ngIf="currentTab == 'about'"></app-about>
+    <app-screenshots *ngIf="currentTab == 'screenshots'"></app-screenshots>
+    <app-trailers *ngIf="currentTab == 'trailers'"></app-trailers>
+  </div>
+</div>
+

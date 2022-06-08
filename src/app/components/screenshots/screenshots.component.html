@@ -1,0 +1,23 @@
+<!-- <div class="screenshotsDiv d-flex">
+  <div class="screenshots mx-1 d-flex" style="margin: -10%;"
+      *ngFor="let screenshot of ssResp" >
+    <img
+      class="game-screenshot"
+      src="{{ screenshot.image }}"
+      alt="screenshot"
+    />
+</div>
+</div> -->
+
+
+<div class="screenshotDiv d-flex">
+  <div class="screenshots" >
+    <img
+      class="game-screenshot m-1"
+      *ngFor="let screenshot of ssResp"
+      src="{{ screenshot.image }}"
+      alt="screenshot"
+      />
+  </div>
+</div>
+

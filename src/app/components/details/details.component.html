@@ -1,0 +1,30 @@
+<div class="details" *ngIf="!isLoading">
+  <div class="game-banner">
+    <img
+        *ngIf="game?.background_image"
+        src="{{game.background_image}}"
+        alt="thumbnail"
+        style="height: auto; width: 95%;"
+        class="game-banner-img img-fluid mx-auto d-block"
+      />
+  </div>
+  <div class="game-content">
+    <div class="detials-wrapper">
+      <div class="game-header">
+        <h1 class="game-header-title fw-bold text-center text-white" style="margin: -20%; position: relative">{{game?.name}}</h1>
+        <h2 class="game-header-release-date fw-bold fs-4 text-center text-white" style="margin: 21% ;position: relative">{{game?.released | date}}</h2>
+        <h4 class="game-header-genres text-white text-center fs-6" style='margin: -19%; position: relative'>
+          <span *ngFor="let genre of game.genres; let last = last"
+          >{{ genre?.name }}<span *ngIf="!last">, </span></span
+        >
+        </h4>
+      </div>
+    </div>
+    <app-game-tabs [gameTabs]="gameTabs"></app-game-tabs>
+  </div>
+
+</div>
+
+<div *ngIf="isLoading">
+  //Loader here
+</div>

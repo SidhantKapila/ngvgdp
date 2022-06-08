@@ -1,1 +1,87 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #151515;
+  padding-top: auto;
+  height: 100%;
+}
+
+body * {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ .main-header{
+   background-color: rgb(27, 26, 26);
+   color: whitesmoke;
+ }
+.main-header:hover {
+  background-color: rgb(0, 0, 0) !important;
+  transition-duration: 0.2s;
+  color: wheat;
+}
+.search-bar-button{
+  background-color: #151515;
+
+}
+
+.search-bar-button:hover{
+  background-color: aqua;
+  transition-duration: 0.2s;
+}
+.btn-hover:hover {
+  color: black !important;
+  background-color: white !important;
+  border-color: black !important;
+  font-weight: bolder;
+}
+.game-thumbnail-container{
+  height: 10rem;
+}
+.game-thumbnail{
+  height: 100%;
+  border-radius: 3px;
+
+}
+
+.card:hover{
+  .game-thumbnail{
+    filter: blur(3px);
+    transition-duration: 0.2s;
+  }
+
+ }
+
+.card-hover:hover{
+  background-color: darkblue !important;
+  color: aliceblue;
+  box-shadow: 4px 3px 8px 0px rgb(200 152 44 / 22%);
+  transition-duration: 0.3s;
+}
+
+.game-platform{
+  width: 2rem !important;
+  height: 2rem !important;
+}
+
+.game-banner-img{
+  filter: blur(5px);
+}
+.game-tabs{
+  margin: 20%;
+}
+
+.screenshots{
+  width: auto;
+}
+.game-screenshot{
+  width: calc(50% - 10px);
+}
+
+.trailers{
+  width: auto;
+}
+.game-trailer{
+  width: calc(95% - 10px);
+}
