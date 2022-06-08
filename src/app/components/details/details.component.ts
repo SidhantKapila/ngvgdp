@@ -40,7 +40,7 @@ export class DetailsComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.routeSub = this.activatedRoute.params.subscribe((params: Params) => {
       this.gameId = params['id'];
-      this.getGameDetails(this.gameId);
+      this.getGameDetails2(this.gameId, 'about');
     });
   }
 
@@ -53,13 +53,6 @@ export class DetailsComponent implements OnInit, OnDestroy {
     }
   }
 
-  getGameDetails(id: string){
-    this.isLoading = true;
-    this.gameSub = this.httpService.getGameDetails(id).subscribe((gameResp : Game) => {
-      this.game = gameResp;
-      setTimeout(()=>{this.gameRating = this.game.metacritic; this.isLoading = false}, 1000)
-    });
-  }
 
   getGameDetails2(id: string, request: string){
     this.isLoading = true;

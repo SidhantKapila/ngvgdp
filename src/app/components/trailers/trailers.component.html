@@ -1,4 +1,4 @@
-<h1>trailers works!</h1>
+<!-- <h1>trailers works!</h1>
 <div>
   <video
         class="game-trailer"
@@ -8,4 +8,17 @@
         <source src="{{ trailer.data?.max }}" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+</div> -->
+
+<div class="trailersDiv d-flex">
+  <div class="trailers">
+    <video
+      class="game-trailer m-1"
+      controls
+      *ngFor="let trailer of ttResp.trailers">
+      <source src="{{ trailer.data?.max }}" type="video/mp4"/>
+        Your browser does not support the video tag.
+      </video>
+  </div>
 </div>
+

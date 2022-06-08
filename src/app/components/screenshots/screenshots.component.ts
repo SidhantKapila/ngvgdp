@@ -24,7 +24,8 @@ export class ScreenshotsComponent implements OnInit {
 
   getScreenshotsDetails2(){
     this.httpService.getGameDetails2(this.gameId, 'screenshots').subscribe((ssResp: any) => {
-      this.ssResp = ssResp;
+      this.ssResp = ssResp.results;
+      console.log('t1', ssResp.results)
     })
   }
 }

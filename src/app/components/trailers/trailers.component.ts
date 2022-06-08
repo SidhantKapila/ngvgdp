@@ -24,7 +24,8 @@ export class TrailersComponent implements OnInit {
 
   getTrailersDetails2(){
     this.httpService.getGameDetails2(this.gameId, 'trailers').subscribe((ttResp: any) => {
-      this.ttResp = ttResp;
+      this.ttResp = ttResp.results;
+      console.log('t1', ttResp.results)
     })
   }
 
