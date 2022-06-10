@@ -1,24 +1,20 @@
-<!-- <h1>trailers works!</h1>
-<div>
-  <video
-        class="game-trailer"
-        controls
-        *ngFor="let trailer of ttResp.trailers"
-      >
-        <source src="{{ trailer.data?.max }}" type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-</div> -->
 
-<div class="trailersDiv d-flex">
+
+<div class="trailersDiv d-flex" *ngIf="!isLoading">
   <div class="trailers">
     <video
       class="game-trailer m-1"
       controls
-      *ngFor="let trailer of ttResp.trailers">
-      <source src="{{ trailer.data?.max }}" type="video/mp4"/>
+      *ngFor="let trailer of ttResp">
+      <source src="{{ trailer.data.max }}" type="video/mp4"/>
         Your browser does not support the video tag.
       </video>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="col-6">
+  <div class="spinner-border col-6 text-primary d-flex spinner-grow-lg m-5 " style="width: 5rem; height: 5rem;" role="status">
+    <!-- <span class="sr-only">Loading...</span> -->
   </div>
 </div>
 

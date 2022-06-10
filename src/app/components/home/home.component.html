@@ -1,44 +1,52 @@
-<div class="filters">
-  <form>
-    <select class="form-select" aria-label="form-select">
-      <option value="name">Name</option>
-      <option value="-released">Released</option>
-      <option value="-added">Added</option>
-      <option value="-created">Created</option>
-      <option value="-updated">Updated</option>
-      <option value="-rating">Rating</option>
-      <option value="metacritic">Metacritic</option>
-    </select>
-  </form>
-</div>
 
 
-<div class="games d-flex flex-wrap align-middle bg-dark">
-  <ng-container *ngFor="let game of games" >
-    <div class="card bg-secondary bg-gradient col-sm-6 text-center mx-auto mt-3 card-hover" style="width: 18rem;">
-      <div class="game-thumbnail-container">
-        <img
-          *ngIf="game.background_image"
-          src="{{game.background_image}}"
-          alt="thumbnail"
-          class="game-thumbnail card-img-top"
-        />
-      <p *ngIf="!game.background_image">No image</p>
-      </div>
-      <div class="game-description card-body">
-        <p class="game-name card-title fw-bold">{{ game.name }}</p>
-        <div class="game-platforms">
+<div class="row">
+  <div class="filters">
+    <form>
+      <select class="form-select" aria-label="form-select" (selectionChange)="searchGames(sort)">
+        <option value="name">Name</option>
+        <option value="-released">Released</option>
+        <option value="-added">Added</option>
+        <option value="-created">Created</option>
+        <option value="-updated">Updated</option>
+        <option value="-rating">Rating</option>
+        <option value="metacritic">Metacritic</option>
+      </select>
+    </form>
+  </div>
+
+
+  <div class="games d-flex flex-wrap align-middle bg-dark"  *ngIf="!isLoading">
+    <ng-container *ngFor="let game of games" >
+      <div class="card bg-secondary bg-gradient col-sm-6 text-center mx-auto mt-3 card-hover" style="width: 18rem;">
+        <div class="game-thumbnail-container">
           <img
-             *ngFor="let gamePlatform of game.parent_platforms"
-              class="game-platform m-1"
-              src="./assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
-              alt="{{ gamePlatform.platform.slug }}"
-            />
+            *ngIf="game.background_image"
+            src="{{game.background_image}}"
+            alt="thumbnail"
+            class="game-thumbnail card-img-top"
+          />
+        <p *ngIf="!game.background_image">No image</p>
         </div>
-        <button class="btn btn-outline-info" (click)="openGameDetails(game.id)" >More Details</button>
+        <div class="game-description card-body">
+          <p class="game-name card-title fw-bold">{{ game.name }}</p>
+          <div class="game-platforms">
+            <img
+               *ngFor="let gamePlatform of game.parent_platforms"
+                class="game-platform m-1"
+                src="./assets/images/platforms/{{ gamePlatform.platform.slug }}.svg"
+                alt="{{ gamePlatform.platform.slug }}"
+              />
+          </div>
+          <button class="btn btn-outline-info" (click)="openGameDetails(game.id)" >More Details</button>
+        </div>
       </div>
+    </ng-container>
+  </div>
+
+  <div *ngIf="isLoading" class="col-6">
+    <div class="spinner-border col-6 text-primary d-flex spinner-grow-lg m-5 " style="width: 5rem; height: 5rem;" role="status">
+      <!-- <span class="sr-only">Loading...</span> -->
     </div>
-  </ng-container>
+  </div>
 </div>
-
-

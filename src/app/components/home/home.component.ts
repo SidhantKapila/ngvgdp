@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   public games: Array<Game> = [];
   private routeSub: Subscription = new Subscription;
   private gameSub: Subscription = new Subscription;
+  isLoading = false;
 
   constructor(
     private httpService: HttpService,
@@ -33,12 +34,15 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchGames(sort: string, search?: string): void{
+    this.isLoading = true;
     this.gameSub =  this.httpService
     .getGameList(sort, search)
     .subscribe((gameList: APIResponse<Game>) =>{
       this.games = gameList.results;
       console.log(this.games);
+      this.isLoading = false;
     });
+
   }
 
   openGameDetails(id: number):void {

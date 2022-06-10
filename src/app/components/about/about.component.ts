@@ -14,6 +14,7 @@ export default class AboutComponent implements OnInit {
   gameId: string = '';
   gameDet!: Game;
   aboutResp!: GameAbout;
+  isLoading = false;
 
   @Input() game! : Game;
   constructor(
@@ -28,8 +29,10 @@ export default class AboutComponent implements OnInit {
 
 
   getAboutDetails2(){
+    this.isLoading = true
     this.httpService.getGameDetails2(this.gameId, 'about').subscribe((aboutResp: any) => {
       this.aboutResp = aboutResp;
+      this.isLoading = false
     })
   }
 

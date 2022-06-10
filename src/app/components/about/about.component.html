@@ -1,11 +1,19 @@
-<div class="about-description text-left bg-info bg-gradient mx-1" style="margin: -15%;" >
-  <p *ngIf="aboutResp.website" class="aboutResp-tabs-par">
-    Website:
-    <a class="aboutResp-tabs-link" href="{{ aboutResp.website }}" target="_blank">{{
-      aboutResp.website
-    }}</a>
-  </p>
-  <div class="aboutResp-description oveflow-auto m-1" [innerHTML]="aboutResp.description"></div>
-  <p class="aboutResp-tabs-votes">
-  </p>
+<div class="about-description bg-dark m-1" style="margin: -15%;" *ngIf="!isLoading">
+  <div class="about-des mx-2 text-left text-white bg-black bg-opacity-10">
+    <p *ngIf="aboutResp.website" class="aboutResp-tabs-par">
+      Website:
+      <a class="aboutResp-tabs-link" href="{{ aboutResp.website }}" target="_blank">{{
+        aboutResp.website
+      }}</a>
+    </p>
+    <div class="aboutResp-description oveflow-auto m-1" [innerHTML]="aboutResp.description"></div>
+    <p class="aboutResp-tabs-votes">
+    </p>
+  </div>
+</div>
+
+<div *ngIf="isLoading" class="col-6">
+  <div class="spinner-border col-6 text-primary d-flex spinner-grow-lg m-5 " style="width: 5rem; height: 5rem;" role="status">
+    <!-- <span class="sr-only">Loading...</span> -->
+  </div>
 </div>
