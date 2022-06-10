@@ -1,8 +1,9 @@
 
-<div>
-  <div class="game-tabs position-relative align-middle col-7 d-flex" >
+<div class="row">
+
+  <div class="game-tabs m-2 position-relative align-middle d-flex bg-dark" >
     <ul *ngFor="let tab of gameTabs"
-        class="nav nav-tabs mx-auto">
+        class="nav nav-tabs mx-auto my-2">
       <li class="nav-item">
         <a class="nav-link active btn-hover" (click)="openComponent(tab.route)">
           {{tab.name}}
@@ -10,11 +11,12 @@
       </li>
     </ul>
   </div>
-  <div class="chosen-game-tab">
 
+  <div class="chosen-game-tab">
     <app-about *ngIf="currentTab == 'about'"></app-about>
     <app-screenshots *ngIf="currentTab == 'screenshots'"></app-screenshots>
     <app-trailers *ngIf="currentTab == 'trailers'"></app-trailers>
   </div>
+
 </div>
 

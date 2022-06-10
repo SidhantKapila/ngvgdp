@@ -12,6 +12,7 @@ export class ScreenshotsComponent implements OnInit {
   gameId: string = '';
   gameDet!: Game;
   ssResp!: any;
+  isLoading = false;
   constructor(
     private activatedRoute: ActivatedRoute,
     private httpService: HttpService,
@@ -23,9 +24,11 @@ export class ScreenshotsComponent implements OnInit {
   }
 
   getScreenshotsDetails2(){
+    this.isLoading = true
     this.httpService.getGameDetails2(this.gameId, 'screenshots').subscribe((ssResp: any) => {
       this.ssResp = ssResp.results;
-      console.log('t1', ssResp.results)
+      this.isLoading = false
+      console.log('screenshot results', ssResp.results)
     })
   }
 }
