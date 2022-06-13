@@ -34,7 +34,6 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   searchGames(sort: string, search?: string): void{
-    console.log('searching for games', sort, search);
     this.isLoading = true;
     this.gameSub =  this.httpService
     .getGameList(sort, search)
